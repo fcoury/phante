@@ -1,3 +1,4 @@
+# used as reference - https://github.com/n1tsu/n36tsu
 units:
   # Proxy Spacing Variables
   kx: cx
@@ -186,28 +187,54 @@ pcbs:
       main:
         outline: board_left
     footprints:
-      choc_hotswap:
-        what: choc
-        where: true
+      switch:
+        what: pg1316s
+        where: /^matrix_.*|^thumbs_.*/
         params:
-          keycaps: true
-          reverse: false
-          hotswap: true
           from: "{{column_net}}"
           to: "{{colrow}}"
       diode:
-        what: diode
-        where: true
+        what: diode_tht_sod123
+        where: /^matrix_.*|^thumbs_.*/
         params:
+          side: "F"
           from: "{{colrow}}"
           to: "{{row_net}}"
         adjust:
           shift: [0, -5]
-      promicro:
-        what: promicro
+      nice_nano:
+        what: nice_nano
         params:
-          orientation: "down"
+          orientation: up
         where:
           ref: matrix_outer_num
           shift: [5, 1]
           rotate: 0
+  right:
+    outlines:
+      main:
+        outline: board_right
+    footprints:
+      switch:
+        what: pg1316s
+        where: /^mirror_matrix_.*|^mirror_thumbs_.*/
+        params:
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode_tht_sod123
+        where: /^mirror_matrix_.*|^mirror_thumbs_.*/
+        params:
+          side: "F"
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      nice_nano:
+        what: nice_nano
+        params:
+          orientation: up
+        where:
+          ref: mirror_matrix_outer_num
+          shift: [5, 1]
+          rotate: 180
