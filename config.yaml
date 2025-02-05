@@ -6,6 +6,18 @@ units:
   # Padding Variables
   px: kx + 8
   py: ky + 8
+  # Outline (former 0.5px/py)
+  pushX: px / 2
+  pushY: py / 2
+  # former 0.25px/py
+  halfPushX: pushX / 2
+  halfPushY: pushY / 2
+  # former 0.125px/py
+  quartPushX: halfPushX / 2
+  quartPushY: halfPushY / 2
+  # former 0.75px/push
+  halfPlusPushX: halfPushX + pushX
+  halfPlusPushY: halfPushY + pushY
 points:
   zones:
     # The primary 6x5 key matrix, plus 3 modifiers.
@@ -88,94 +100,136 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_num
-          shift: [-0.5px, 0.5py]
+          shift: [-pushX, pushY]
         - ref: matrix_ring_num
-          shift: [-0.5px, 0.5py]
+          shift: [-pushX, pushY]
         - ref: matrix_middle_num
-          shift: [-0.5px, 0.5py]
+          shift: [-pushX, pushY]
         - ref: matrix_middle_num
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: matrix_inner_num
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: matrix_inner_top
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: matrix_inner_home
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: matrix_inner_bottom
-          shift: [0.5px, -0.125py]
+          shift: [pushX, -0.125py]
         - ref: matrix_inner_bottom
-          shift: [0.75px, -0.25py]
+          shift: [halfPlusPushX, -halfPushY]
         - ref: matrix_inner_bottom
-          shift: [0.75px, -0.875py]
+          shift: [halfPlusPushX, -0.875py]
         - ref: matrix_inner_bottom
-          shift: [0.75px, -0.875py]
+          shift: [halfPlusPushX, -0.875py]
         - ref: thumbs_space_cluster
-          shift: [0.375px, -0.5py]
+          shift: [0.375px, -pushY]
         - ref: thumbs_space_cluster
-          shift: [-1px, -0.5py]
+          shift: [-1px, -pushY]
         - ref: thumbs_space_cluster
           shift: [-1px, 0.400py]
         - ref: thumbs_space_cluster
-          shift: [-0.25px, 0.400py]
+          shift: [-halfPushX, 0.400py]
         - ref: thumbs_layer_cluster
-          shift: [-0.5px, -0.425py]
+          shift: [-pushX, -0.425py]
         - ref: matrix_index_bottom
-          shift: [0px, -0.75py]
+          shift: [0px, -halfPlusPushY]
         - ref: matrix_middle_bottom
           shift: [0px, -0.625py]
         - ref: matrix_ring_bottom
-          shift: [-0.25px, -0.45py]
+          shift: [-halfPushX, -0.45py]
         - ref: matrix_ring_bottom
-          shift: [-0.25px, -0.67py]
+          shift: [-halfPushX, -0.67py]
         - ref: matrix_outer_bottom
-          shift: [-0.5px, -0.5py]
+          shift: [-pushX, -pushY]
   board_right:
     - what: polygon
       operation: stack
       fillet: 2
       points:
         - ref: mirror_matrix_outer_num
-          shift: [-0.5px, 0.5py]
+          shift: [-pushX, pushY]
         - ref: mirror_matrix_ring_num
-          shift: [-0.5px, 0.5py]
+          shift: [-pushX, pushY]
         - ref: mirror_matrix_middle_num
-          shift: [-0.5px, 0.5py]
+          shift: [-pushX, pushY]
         - ref: mirror_matrix_middle_num
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: mirror_matrix_inner_num
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: mirror_matrix_inner_top
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: mirror_matrix_inner_home
-          shift: [0.5px, 0.5py]
+          shift: [pushX, pushY]
         - ref: mirror_matrix_inner_bottom
-          shift: [0.5px, -0.125py]
+          shift: [pushX, -0.125py]
         - ref: mirror_matrix_inner_bottom
-          shift: [0.75px, -0.25py]
+          shift: [halfPlusPushX, -halfPushY]
         - ref: mirror_matrix_inner_bottom
-          shift: [0.75px, -0.875py]
+          shift: [halfPlusPushX, -0.875py]
         - ref: mirror_matrix_inner_bottom
-          shift: [0.75px, -0.875py]
+          shift: [halfPlusPushX, -0.875py]
         - ref: mirror_thumbs_space_cluster
-          shift: [0.375px, -0.5py]
+          shift: [0.375px, -pushY]
         - ref: mirror_thumbs_space_cluster
-          shift: [-1px, -0.5py]
+          shift: [-1px, -pushY]
         - ref: mirror_thumbs_space_cluster
           shift: [-1px, 0.400py]
         - ref: mirror_thumbs_space_cluster
-          shift: [-0.25px, 0.400py]
+          shift: [-halfPushX, 0.400py]
         - ref: mirror_thumbs_layer_cluster
-          shift: [-0.5px, -0.425py]
+          shift: [-pushX, -0.425py]
         - ref: mirror_matrix_index_bottom
-          shift: [0px, -0.75py]
+          shift: [0px, -halfPlusPushY]
         - ref: mirror_matrix_middle_bottom
           shift: [0px, -0.625py]
         - ref: mirror_matrix_ring_bottom
-          shift: [-0.25px, -0.45py]
+          shift: [-halfPushX, -0.45py]
         - ref: mirror_matrix_ring_bottom
-          shift: [-0.25px, -0.67py]
+          shift: [-halfPushX, -0.67py]
         - ref: mirror_matrix_outer_bottom
-          shift: [-0.5px, -0.5py]
+          shift: [-pushX, -pushY]
+        # - ref: mirror_matrix_outer_num
+        #   shift: [-0.5px, 0.5py]
+        # - ref: mirror_matrix_ring_num
+        #   shift: [-0.5px, 0.5py]
+        # - ref: mirror_matrix_middle_num
+        #   shift: [-0.5px, 0.5py]
+        # - ref: mirror_matrix_middle_num
+        #   shift: [0.5px, 0.5py]
+        # - ref: mirror_matrix_inner_num
+        #   shift: [0.5px, 0.5py]
+        # - ref: mirror_matrix_inner_top
+        #   shift: [0.5px, 0.5py]
+        # - ref: mirror_matrix_inner_home
+        #   shift: [0.5px, 0.5py]
+        # - ref: mirror_matrix_inner_bottom
+        #   shift: [0.5px, -0.125py]
+        # - ref: mirror_matrix_inner_bottom
+        #   shift: [0.75px, -0.25py]
+        # - ref: mirror_matrix_inner_bottom
+        #   shift: [0.75px, -0.875py]
+        # - ref: mirror_matrix_inner_bottom
+        #   shift: [0.75px, -0.875py]
+        # - ref: mirror_thumbs_space_cluster
+        #   shift: [0.375px, -0.5py]
+        # - ref: mirror_thumbs_space_cluster
+        #   shift: [-1px, -0.5py]
+        # - ref: mirror_thumbs_space_cluster
+        #   shift: [-1px, 0.400py]
+        # - ref: mirror_thumbs_space_cluster
+        #   shift: [-0.25px, 0.400py]
+        # - ref: mirror_thumbs_layer_cluster
+        #   shift: [-0.5px, -0.425py]
+        # - ref: mirror_matrix_index_bottom
+        #   shift: [0px, -0.75py]
+        # - ref: mirror_matrix_middle_bottom
+        #   shift: [0px, -0.625py]
+        # - ref: mirror_matrix_ring_bottom
+        #   shift: [-0.25px, -0.45py]
+        # - ref: mirror_matrix_ring_bottom
+        #   shift: [-0.25px, -0.67py]
+        # - ref: mirror_matrix_outer_bottom
+        #   shift: [-0.5px, -0.5py]
 
   combo:
     - name: board_left
@@ -238,3 +292,7 @@ pcbs:
           ref: mirror_matrix_outer_num
           shift: [5, 1]
           rotate: 180
+# cases:
+#   plate:
+#     - name: xl_board_key_cutouts
+#       extrude: 1.2
